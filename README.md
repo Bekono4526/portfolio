@@ -50,7 +50,7 @@ Welcome to the repository of my web development portfolio. This project aims to 
 4. Start the development server:
 
     ```bash
-    npm start
+    npm run dev
     ```
 
 ## How to Contribute
