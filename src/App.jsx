@@ -4,7 +4,7 @@ import Footer from './components/Footer.jsx';
 
 function App() {
   return (
-    <body className=''>
+    <div className=''>
    <Header />
     <main>
         <section id="accueil">
@@ -17,7 +17,7 @@ function App() {
         </section>
     </main>
     <Footer />
-</body>
+</div>
   );
 }
 
