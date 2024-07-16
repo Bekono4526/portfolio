@@ -1,6 +1,10 @@
 import React from 'react';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
+import About from './components/About.jsx';
+import Skills from './components/Skills.jsx';
+import Contact from './components/Contact.jsx';
+import Portfolio from './components/Portfolio.jsx';
 
 function App() {
   return (
@@ -8,12 +12,16 @@ function App() {
    <Header />
     <main>
         <section id="accueil">
-            <h2>Section Accueil</h2>
-            <p>Bienvenue sur la page d'accueil de notre site.</p>
+          <About />
         </section>
         <section id="services">
-            <h2>Nos Services</h2>
-            <p>Description des services que nous offrons.</p>
+          <Skills />
+        </section>
+        <section id="services">
+         <Portfolio />
+        </section>
+        <section id="services">
+          <Contact />
         </section>
     </main>
     <Footer />
