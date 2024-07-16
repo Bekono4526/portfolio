@@ -4,7 +4,7 @@ import Footer from './components/Footer.jsx';
 
 function App() {
   return (
-    <div className=''>
+    <div className='min-h-screen flex flex-col'>
    <Header />
     <main>
         <section id="accueil">
