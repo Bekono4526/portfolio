@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Contact() {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [messageText, setMessageText] = useState("");
+    const [message, setMessage] = useState("");
 
-    return(
-        <section className="border border-bg-darker-blue p-6 bg-gray-100">
-            <form action="" className="space-y-4">
+    const handleSubmit = (event) => {
+        event.preventDefault(); // Prévenir le rechargement de la page
+        setMessage("Merci pour votre message, nous vous répondrons bientôt !");
+
+        // Réinitialiser les champs du formulaire
+        setName("");
+        setEmail("");
+        setMessageText("");
+
+        // Réinitialiser le message après 5 secondes
+        setTimeout(() => {
+            setMessage("");
+        }, 5000);
+    };
+
+    return (
+        <section id="contact" className="border border-bg-darker-blue p-6 bg-gray-100 mt-10">
+            <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="flex flex-col">
                     <label htmlFor="name" className="text-lg font-medium">Nom</label>
                     <input 
@@ -12,6 +31,8 @@ function Contact() {
                         id="name" 
                         name="name" 
                         required 
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                         className="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                     />
                 </div>
@@ -22,6 +43,8 @@ function Contact() {
                         id="email" 
                         name="email" 
                         required 
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         className="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                     />
                 </div>
@@ -31,6 +54,8 @@ function Contact() {
                         id="message" 
                         name="message" 
                         required 
+                        value={messageText}
+                        onChange={(e) => setMessageText(e.target.value)}
                         className="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                     ></textarea>
                 </div>
@@ -41,6 +66,7 @@ function Contact() {
                     Envoyer
                 </button>
             </form>
+            {message && <p className="mt-2 text-green-500">{message}</p>}
         </section>
     );
 }
