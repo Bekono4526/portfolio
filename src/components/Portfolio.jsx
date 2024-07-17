@@ -64,7 +64,6 @@ function Portfolio() {
     return (
         <section id="portfolio" className="bg-dark-blue text-white relative py-8">
             <h2 className="text-center text-2xl font-bold mb-4">Portfolio</h2>
-            <p className="text-center mb-6">Voici les projets que j'ai réalisés.</p>
             <button onClick={() => handleManualScroll('left')} className="absolute left-0 top-1/2 transform -translate-y-1/2 h-10 w-10 bg-dark-blue text-white z-10 flex items-center justify-center rounded-full">
                 &#10094;
             </button>
