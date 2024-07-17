@@ -62,12 +62,12 @@ function Portfolio() {
     };
 
     return (
-        <section id="portfolio" className="bg-dark-blue text-white relative py-8">
-            <h2 className="text-center text-2xl font-bold mb-4">Portfolio</h2>
+        <section id="portfolio" className="bg-dark-blue text-white relative py-4">
+            <h2 className="text-left text-2xl font-bold mb-10 ml-20">Projects</h2>
             <button onClick={() => handleManualScroll('left')} className="absolute left-0 top-1/2 transform -translate-y-1/2 h-10 w-10 bg-dark-blue text-white z-10 flex items-center justify-center rounded-full">
                 &#10094;
             </button>
-            <div ref={scrollRef} className="flex overflow-x-auto whitespace-nowrap scroll-smooth gap-4 px-10">
+            <div ref={scrollRef} className="flex overflow-x-auto whitespace-nowrap scroll-smooth gap-4 px-10 scroll-container">
                 {cards.map((card) => (
                     <div className="min-w-80 flex-shrink-0" key={card.id}>
                         <Card

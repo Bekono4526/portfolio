@@ -21,7 +21,7 @@ function Contact() {
   return (
     <section id="contact" className="p-6 bg-darker-blue">
       <form onSubmit={handleSubmit} className="flex flex-col gap-2.5 p-8 bg-dark-purple rounded-2xl hover:scale-105 transition duration-400 hover:border border-black w-4/5 mx-auto">
-        <p id="heading" className="text-center text-white text-xl my-8">Contact Us</p>
+        <p id="heading" className="text-center text-white text-xl my-8">Contact Me</p>
         <div className="field flex items-center justify-center gap-2 rounded-2xl py-2.5 bg-dark-purple shadow-[inset_2px_5px_10px_rgba(5,5,5)]">
           <input
             type="text"
