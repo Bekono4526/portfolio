@@ -3,10 +3,17 @@ import { FiMenu, FiX } from 'react-icons/fi';
 
 function Header() {
     const [isOpen, setIsOpen] = useState(false);
-
-    const handleLinkClick = () => {
+    const handleLinkClick = (id) => {
         setIsOpen(false);
+        const section = document.getElementById(id);
+        if (section) {
+            window.scrollTo({
+                top: section.offsetTop,
+                behavior: 'smooth'
+            });
+        }
     };
+    
 
     return (
         <header className='flex justify-between items-center p-6 bg-dark-purple text-white fixed top-0 w-full z-50'>
@@ -30,19 +37,19 @@ function Header() {
             >
                 <div className="flex flex-col items-start p-4 space-y-4 text-white font-custom">
                     <h1 className="text-2xl font-bold text-white mb-6">Bekono Sophie</h1>
-                    <a href="#about" onClick={handleLinkClick}>About me</a>
-                    <a href="#skills" onClick={handleLinkClick}>Skills</a>
-                    <a href="#portfolio" onClick={handleLinkClick}>Portfolio</a>
-                    <a href="#contact" onClick={handleLinkClick}>Contact</a>
+                    <a href="#about" onClick={() => handleLinkClick('about')}>About me</a>
+                    <a href="#skills" onClick={() => handleLinkClick('skills')}>Skills</a>
+                    <a href="#portfolio" onClick={() => handleLinkClick('portfolio')}>Portfolio</a>
+                    <a href="#contact" onClick={() => handleLinkClick('contact')}>Contact</a>
                 </div>
             </div>
 
             <nav className='hidden md:flex font-custom'>
                 <ul className='flex gap-8 mr-10'>
-                    <li><a href="#about">About me</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about" onClick={() => handleLinkClick('about')}>About me</a></li>
+                    <li><a href="#skills" onClick={() => handleLinkClick('skills')}>Skills</a></li>
+                    <li><a href="#portfolio" onClick={() => handleLinkClick('portfolio')}>Portfolio</a></li>
+                    <li><a href="#contact" onClick={() => handleLinkClick('contact')}>Contact</a></li>
                 </ul>
             </nav>
         </header>

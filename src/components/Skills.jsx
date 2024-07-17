@@ -15,10 +15,10 @@ const skills = [
 
 function Skills() {
     return (
-        <section id="skills" className="bg-darker-blue text-white py-12">
+        <section className="bg-darker-blue text-white py-12 cursor-default">
             <div className="container mx-auto text-center">
                 <h2 className="text-3xl font-bold mb-6">Compétences</h2>
-                <p className="mb-8">Voici les compétences que je maîtrise.</p>
+               
                 <div className="flex flex-wrap justify-center gap-4">
                     {skills.map(skill => (
                         <span

@@ -5,9 +5,9 @@ function Card({ title, description, image }) {
     const hasValidImage = image && image.trim() !== '';
 
     return (
-        <div className="relative flex w-80 flex-col rounded-xl bg-white shadow-md mb-10">
+        <div className="relative flex flex-col rounded-xl bg-white shadow-md mb-10 w-full sm:w-80">
             <div
-                className="h-40 overflow-hidden rounded-xl"
+                className="h-40 overflow-hidden rounded-t-xl"
                 style={{
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
@@ -16,19 +16,19 @@ function Card({ title, description, image }) {
             >
                 {/* Afficher le gradient si aucune image valide n'est fournie */}
                 {!hasValidImage && (
-                    <div className="w-full h-full bg-gradient-to-r from-blue-500 to-blue-600"></div>
+                    <div className="w-full h-full bg-gradient-to-r from-vert to-violet"></div>
                 )}
             </div>
-            <div className="p-6">
-                <h5 className="mb-2 text-xl font-semibold leading-snug text-dark-purple truncate">
+            <div className="p-4 sm:p-6">
+                <h5 className="mb-2 text-lg sm:text-xl font-semibold leading-snug text-dark-purple truncate">
                     {title || 'Tailwind Card'}
                 </h5>
-                <p className="text-base leading-relaxed text-gray-700 overflow-hidden text-ellipsis">
+                <p className="text-sm sm:text-base leading-relaxed text-gray-700 overflow-hidden text-ellipsis">
                     {description || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc felis ligula.'}
                 </p>
             </div>
-            <div className="px-6 pt-0 mb-2">
-                <button type="button" className="rounded-lg bg-blue-500 py-3 px-6 text-xs font-bold uppercase text-white shadow-md transition-all hover:shadow-lg">
+            <div className="px-4 sm:px-6 pt-0 mb-2">
+                <button type="button" className="rounded-lg bg-dark-violet py-2 sm:py-3 px-4 sm:px-6 text-xs sm:text-xs font-bold uppercase text-white shadow-md transition-all hover:shadow-lg">
                     Read More
                 </button>
             </div>

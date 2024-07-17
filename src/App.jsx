@@ -9,23 +9,15 @@ import Portfolio from './components/Portfolio.jsx';
 function App() {
   return (
     <div className='min-h-screen flex flex-col'>
-   <Header />
-    <main>
-        <section id="accueil">
-          <About />
-        </section>
-        <section id="services">
-          <Skills />
-        </section>
-        <section id="services">
-         <Portfolio />
-        </section>
-        <section id="services">
-          <Contact />
-        </section>
-    </main>
-    <Footer />
-</div>
+      <Header />
+      <main className="">
+        <About />
+        <Skills />
+        <Portfolio />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
   );
 }
 
