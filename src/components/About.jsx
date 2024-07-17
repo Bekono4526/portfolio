@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 
-function About() {
+function About({ contactRef }) {
   const handleContactClick = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+    if (contactRef.current) {
+      contactRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -13,7 +12,7 @@ function About() {
       <h2 className="text-xl md:text-2xl font-bold text-white font-custom mb-4 md:mb-6 mt-4">
         About me
       </h2>
-      <p className="text-base md:text-lg text-white font-custom text-left w-full max-w-2xl">
+      <p className="text-base md:text-lg text-white font-custom text-left w-full max-w-xl">
         Hello! I am a dedicated Full Stack Developer with a strong foundation in
         both front-end and back-end technologies. With a passion for creating
         seamless and visually appealing user experiences, I am now specializing
@@ -23,7 +22,8 @@ function About() {
         effective collaboration with back-end teams to deliver cohesive and
         robust solutions. I am committed to continuous learning and staying
         up-to-date with the latest front-end trends. Excited to bring innovative
-        ideas to life, I look forward to creating exceptional digital
+        ideas to life, I look forward to creating exceptional 
+        digital
         experiences.
       </p>
       <div className="flex flex-col sm:flex-row mt-6 md:mt-10 gap-4">

@@ -1,7 +1,7 @@
-
 import React from "react";
 import 'tailwindcss/tailwind.css';
 
+// Déclaration d'un tableau de compétences avec leurs couleurs associées
 const skills = [
     { name: "HTML", color: "bg-red-500" },
     { name: "CSS", color: "bg-blue-500" },
@@ -15,10 +15,10 @@ const skills = [
 
 function Skills() {
     return (
-        <section className="bg-darker-blue text-white py-12 cursor-default">
+        // Assurez-vous que l'attribut id est une chaîne
+        <section id="skills" className="bg-darker-blue text-white py-12 cursor-default">
             <div className="container mx-auto text-center">
                 <h2 className="text-3xl font-bold mb-6">Compétences</h2>
-               
                 <div className="flex flex-wrap justify-center gap-4">
                     {skills.map(skill => (
                         <span
