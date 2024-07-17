@@ -7,25 +7,21 @@ function Contact() {
     const [message, setMessage] = useState("");
 
     const handleSubmit = (event) => {
-        event.preventDefault(); // Prevents page reload on form submission
-        setMessage("Merci pour votre message, nous vous répondrons bientôt !"); // Set confirmation message
-
-        // Reset the form fields
+        event.preventDefault();
+        setMessage("Merci pour votre message, nous vous répondrons bientôt !");
         setName("");
         setEmail("");
         setMessageText("");
-
-        // Automatically clear the message after 5 seconds
         setTimeout(() => {
             setMessage("");
         }, 5000);
     };
 
     return (
-        <section id="contact" className="border border-bg-darker-blue p-6 bg-gray-100 mt-10">
-            <form onSubmit={handleSubmit} className="flex flex-col gap-2.5 p-8 bg-gray-900 rounded-2xl hover:scale-105 transition duration-400 hover:border border-black w-4/5 mx-auto">
+        <section id="contact" className="border border-bg-darker-blue p-6 bg-gray-100">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-2.5 p-8 bg-dark-purple rounded-2xl hover:scale-105 transition duration-400 hover:border border-black w-4/5 mx-auto">
                 <p id="heading" className="text-center text-white text-xl my-8">Contact Us</p>
-                <div className="field flex items-center justify-center gap-2 rounded-2xl py-2.5 bg-gray-900 shadow-[inset_2px_5px_10px_rgba(5,5,5)]">
+                <div className="field flex items-center justify-center gap-2 rounded-2xl py-2.5 bg-dark-purple shadow-[inset_2px_5px_10px_rgba(5,5,5)]">
                     <input
                         type="text"
                         placeholder="Your Name"
@@ -35,7 +31,7 @@ function Contact() {
                         onChange={(e) => setName(e.target.value)}
                     />
                 </div>
-                <div className="field flex items-center justify-center gap-2 rounded-2xl py-2.5 bg-gray-900 shadow-[inset_2px_5px_10px_rgba(5,5,5)]">
+                <div className="field flex items-center justify-center gap-2 rounded-2xl py-2.5 bg-dark-purple shadow-[inset_2px_5px_10px_rgba(5,5,5)]">
                     <input
                         type="email"
                         placeholder="Your Email"
@@ -44,7 +40,7 @@ function Contact() {
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
-                <div className="field flex items-center justify-center gap-2 rounded-2xl py-2.5 bg-gray-900 shadow-[inset_2px_5px_10px_rgba(5,5,5)]">
+                <div className="field flex items-center justify-center gap-2 rounded-2xl py-2.5 bg-dark-purple shadow-[inset_2px_5px_10px_rgba(5,5,5)]">
                     <textarea
                         placeholder="Your Message"
                         rows="4"
