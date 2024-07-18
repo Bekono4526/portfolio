@@ -1,4 +1,6 @@
+
 import React, { useState } from "react";
+
 
 function Contact() {
   const [name, setName] = useState("");
@@ -6,13 +8,32 @@ function Contact() {
   const [messageText, setMessageText] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('Form submitted'); // Ligne de débogage
-    setMessage("Merci pour votre message, nous vous répondrons bientôt !");
-    setName("");
-    setEmail("");
-    setMessageText("");
+    
+    try {
+      const response = await axios.post(
+        "http://localhost:3001/send-email",
+        { name, email, messageText },
+        {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
+      );
+      if (response.status === 200) {
+        setMessage("Merci pour votre message, nous vous répondrons bientôt !");
+        setName("");
+        setEmail("");
+        setMessageText("");
+      } else {
+        setMessage("Échec de l'envoi du message. Veuillez réessayer plus tard.");
+      }
+    } catch (error) {
+      console.error("There was an error sending the email:", error);
+      setMessage("Échec de l'envoi du message. Veuillez réessayer plus tard.");
+    }
+
     setTimeout(() => {
       setMessage("");
     }, 5000);

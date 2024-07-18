@@ -1,9 +1,14 @@
-import React, { useRef, useEffect } from "react";
 
-function About({ contactRef }) {
-  const handleContactClick = () => {
-    if (contactRef.current) {
-      contactRef.current.scrollIntoView({ behavior: 'smooth' });
+import React from "react";
+
+function About() {
+  const handleLinkClick = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -32,7 +37,13 @@ function About({ contactRef }) {
       </div>
       <div className="flex flex-col sm:flex-row mt-6 md:mt-10 gap-4 justify-center md:justify-start">
         <a href="/cv.pdf" download className="bg-vert w-full sm:w-40 p-2 text-center">CV</a>
-        <button className="bg-violet w-full sm:w-40 p-2" onClick={handleContactClick}>Contact</button>
+        <a 
+          href="#contact" 
+          onClick={(e) => { e.preventDefault(); handleLinkClick('contact'); }}
+          className="bg-violet w-full sm:w-40 p-2 text-center"
+        >
+          Contact
+        </a>
       </div>
     </section>
   );

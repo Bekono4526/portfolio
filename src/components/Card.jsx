@@ -1,7 +1,7 @@
+
 import React from "react";
 
-function Card({ title, description, image }) {
-    // Utiliser une condition claire pour vérifier si l'image doit être affichée
+function Card({ title, description, image, onReadMore }) {
     const hasValidImage = image && image.trim() !== '';
 
     return (
@@ -14,7 +14,6 @@ function Card({ title, description, image }) {
                     backgroundImage: hasValidImage ? `url(${image})` : 'none'
                 }}
             >
-                {/* Afficher le gradient si aucune image valide n'est fournie */}
                 {!hasValidImage && (
                     <div className="w-full h-full bg-gradient-to-r from-vert to-violet"></div>
                 )}
@@ -24,11 +23,15 @@ function Card({ title, description, image }) {
                     {title || 'Tailwind Card'}
                 </h5>
                 <p className="text-sm sm:text-base leading-relaxed text-gray-700 overflow-hidden text-ellipsis">
-                    {description || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc felis ligula.'}
+                    {description ? description.slice(0, 100) + '...' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc felis ligula.'}
                 </p>
             </div>
             <div className="px-4 sm:px-6 pt-0 mb-2">
-                <button type="button" className="rounded-lg bg-dark-violet py-2 sm:py-3 px-4 sm:px-6 text-xs sm:text-xs font-bold uppercase text-white shadow-md transition-all hover:shadow-lg">
+                <button
+                    type="button"
+                    onClick={onReadMore}
+                    className="rounded-lg bg-dark-violet py-2 sm:py-3 px-4 sm:px-6 text-xs sm:text-xs font-bold uppercase text-white shadow-md transition-all hover:shadow-lg"
+                >
                     Read More
                 </button>
             </div>
