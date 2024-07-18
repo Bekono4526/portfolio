@@ -57,10 +57,7 @@ function Portfolio() {
         const container = scrollRef.current;
         if (container) {
           if (scrollDirection === "right") {
-            if (
-              container.scrollLeft >=
-              container.scrollWidth - container.offsetWidth
-            ) {
+            if (container.scrollLeft >= container.scrollWidth - container.offsetWidth) {
               setScrollDirection("left");
             } else {
               container.scrollLeft += 1;
@@ -102,13 +99,13 @@ function Portfolio() {
   };
 
   return (
-    <section id="projets" className="p-6 md:p-20 pt-20 md:pt-20 bg-dark-blue text-white">
+    <section id="projets" className="relative p-6 md:p-1 pt-20 md:pt-20 bg-dark-blue text-white">
       <h2 className="text-xl md:text-2xl font-bold text-white font-custom mb-4 md:mb-6 mt-4 text-center md:text-left cursor-default hidden md:block">
         Projects
       </h2>
       <button
         onClick={() => handleManualScroll("left")}
-        className="absolute left-0 top-1/2 transform -translate-y-1/2 h-10 w-10 bg-dark-blue text-white z-10 flex items-center justify-center rounded-full"
+        className="absolute left-2 top-1/2 transform -translate-y-1/2 h-10 w-10 bg-dark-blue text-white z-10 flex items-center justify-center rounded-full"
       >
         &#10094;
       </button>
@@ -131,7 +128,7 @@ function Portfolio() {
       </div>
       <button
         onClick={() => handleManualScroll("right")}
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 h-10 w-10 bg-dark-blue text-white z-10 flex items-center justify-center rounded-full"
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 h-10 w-10 bg-dark-blue text-white z-10 flex items-center justify-center rounded-full"
       >
         &#10095;
       </button>
