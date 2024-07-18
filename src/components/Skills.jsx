@@ -16,14 +16,14 @@ const skills = [
 function Skills() {
     return (
         // Assurez-vous que l'attribut id est une chaîne
-        <section id="skills" className="bg-darker-blue text-white py-12 cursor-default">
+        <section id="skills" className="bg-darker-blue text-white py-8 cursor-default">
             <div className="container mx-auto text-left">
-                <h2 className="text-3xl font-bold mb-6">Skills</h2>
+                <h2 className="text-2xl font-bold mb-4 font-custom">Skills</h2>
                 <div className="flex flex-wrap justify-center gap-4">
                     {skills.map(skill => (
                         <span
                             key={skill.name}
-                            className={`px-4 py-2 rounded-full text-white font-semibold ${skill.color} transform transition duration-500 ease-in-out hover:scale-110 hover:bg-opacity-75 animate-fadeIn`}
+                            className={`px-4 py-2 rounded-full text-white font-semibold  font-custom ${skill.color} transform transition duration-500 ease-in-out hover:scale-110 hover:bg-opacity-75 animate-fadeIn`}
                         >
                             {skill.name}
                         </span>

@@ -37,7 +37,10 @@ function Header() {
             >
                 <div className="flex flex-col items-start p-4 space-y-4 text-white font-custom">
                     <h1 className="text-2xl font-bold text-white mb-6">Bekono Sophie</h1>
+                    <div className='hover:bg-gray-800 '>
                     <a href="#about" onClick={() => handleLinkClick('about')}>About me</a>
+                    </div>
+                    
                     <a href="#skills" onClick={() => handleLinkClick('skills')}>Skills</a>
                     <a href="#portfolio" onClick={() => handleLinkClick('portfolio')}>Portfolio</a>
                     <a href="#contact" onClick={() => handleLinkClick('contact')}>Contact</a>
@@ -46,10 +49,21 @@ function Header() {
 
             <nav className='hidden md:flex font-custom'>
                 <ul className='flex gap-8 mr-10'>
-                    <li><a href="#about" onClick={() => handleLinkClick('about')}>About me</a></li>
+                    <div className='p-2 px-6 rounded-lg hover:bg-gray-800 hover:text-white transition-colors duration-300'>
+                    <li className=''><a href="#about" onClick={() => handleLinkClick('about')}>About me</a></li>   
+                    </div>
+                    <div className='p-2 px-8 rounded-lg hover:bg-gray-800 hover:text-white transition-colors duration-300'>
                     <li><a href="#skills" onClick={() => handleLinkClick('skills')}>Skills</a></li>
+                    </div>
+                    <div className='p-2 px-6 rounded-lg hover:bg-gray-800 hover:text-white transition-colors duration-300'>
                     <li><a href="#portfolio" onClick={() => handleLinkClick('portfolio')}>Portfolio</a></li>
+                    </div>
+                    <div className='p-2  px-6 rounded-lg hover:bg-gray-800 hover:text-white transition-colors duration-300'>
                     <li><a href="#contact" onClick={() => handleLinkClick('contact')}>Contact</a></li>
+                    </div>
+                  
+                   
+                   
                 </ul>
             </nav>
         </header>
