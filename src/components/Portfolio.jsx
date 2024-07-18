@@ -102,8 +102,10 @@ function Portfolio() {
   };
 
   return (
-    <section id="portfolio" className="bg-dark-blue text-white relative py-4">
-      <h2 className="text-left text-2xl font-bold mb-10 ml-20">Projects</h2>
+    <section id="projets" className="p-6 md:p-20 pt-20 md:pt-20 bg-dark-blue text-white">
+      <h2 className="text-xl md:text-2xl font-bold text-white font-custom mb-4 md:mb-6 mt-4 text-center md:text-left cursor-default hidden md:block">
+        Projects
+      </h2>
       <button
         onClick={() => handleManualScroll("left")}
         className="absolute left-0 top-1/2 transform -translate-y-1/2 h-10 w-10 bg-dark-blue text-white z-10 flex items-center justify-center rounded-full"
@@ -134,30 +136,13 @@ function Portfolio() {
         &#10095;
       </button>
       {selectedCard && (
-        <Modal onClose={() => setSelectedCard(null)}>
-          <h2 className="text-2xl font-bold mb-4">{selectedCard.title}</h2>
-          <p>{selectedCard.description}</p>
-          <div className="mt-4 flex gap-4">
-            <a
-              href={selectedCard.siteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button className="rounded-lg bg-blue-500 py-2 px-4 text-white">
-                View Site
-              </button>
-            </a>
-            <a
-              href={selectedCard.codeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button className="rounded-lg bg-gray-800 py-2 px-4 text-white">
-                View Code
-              </button>
-            </a>
-          </div>
-        </Modal>
+        <Modal
+          title={selectedCard.title}
+          description={selectedCard.description}
+          siteUrl={selectedCard.siteUrl}
+          codeUrl={selectedCard.codeUrl}
+          onClose={() => setSelectedCard(null)}
+        />
       )}
     </section>
   );

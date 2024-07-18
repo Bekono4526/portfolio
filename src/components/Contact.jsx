@@ -9,7 +9,7 @@ function Contact() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    
+
     try {
       const response = await axios.post(
         "http://localhost:3001/send-email",
@@ -40,7 +40,7 @@ function Contact() {
 
   return (
     <section id="contact" className="p-6 bg-darker-blue">
-      <form onSubmit={handleSubmit} className="flex flex-col gap-2.5 p-8 bg-dark-purple rounded-2xl hover:scale-105 transition duration-400 hover:border border-black w-4/5 mx-auto">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-2.5 p-8 bg-dark-purple rounded-2xl hover:scale-105 transition duration-400 hover:border border-black w-full max-w-3xl mx-auto">
         <p id="heading" className="text-center text-white text-xl my-8">Contact Me</p>
         <div className="field flex items-center justify-center gap-2 rounded-2xl py-2.5 bg-dark-purple shadow-[inset_2px_5px_10px_rgba(5,5,5)]">
           <input
@@ -78,7 +78,7 @@ function Contact() {
             Send Message
           </button>
         </div>
-        {message && <p className="mt-2 text-white bg-vert p-2 z-40 ">{message}</p>}
+        {message && <p className="mt-2 text-white bg-vert p-2 z-40">{message}</p>}
       </form>
     </section>
   );
