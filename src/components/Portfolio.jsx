@@ -57,21 +57,21 @@ function Portfolio() {
         const container = scrollRef.current;
         if (container) {
           if (scrollDirection === "right") {
-            if (container.scrollLeft >= container.scrollWidth - container.offsetWidth) {
+            if (container.scrollLeft >= container.scrollWidth - container.offsetWidth - 1) {
               setScrollDirection("left");
             } else {
-              container.scrollLeft += 1.5; // Augmenter cet intervalle peut aider
+              container.scrollLeft += 2; // Augmenter cette valeur pour un défilement plus rapide
             }
           } else {
-            if (container.scrollLeft <= 0) {
+            if (container.scrollLeft <= 1) {
               setScrollDirection("right");
             } else {
-              container.scrollLeft -= 1.5; // Augmenter cet intervalle peut aider
+              container.scrollLeft -= 2; // Augmenter cette valeur pour un défilement plus rapide
             }
           }
         }
       }
-    }, 50); // Augmenter l'intervalle de temps
+    }, 100); // Augmenter l'intervalle de temps
 
     return () => clearInterval(intervalId);
   }, [scrollDirection, manualScroll]);
