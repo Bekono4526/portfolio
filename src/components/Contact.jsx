@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function Contact() {
@@ -7,12 +7,26 @@ function Contact() {
   const [messageText, setMessageText] = useState("");
   const [message, setMessage] = useState("");
 
+  useEffect(() => {
+    console.log('Backend URL:', import.meta.env.VITE_BACKEND_URL);
+    if (!import.meta.env.VITE_BACKEND_URL) {
+      console.error("VITE_BACKEND_URL is not defined");
+    }
+  }, []);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    console.log('Submitting form with:', {
+      name,
+      email,
+      messageText,
+      backendUrl: import.meta.env.VITE_BACKEND_URL
+    });
+
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/send-email`,
+        `${import.meta.env.VITE_BACKEND_URL}/send-email`,
         { name, email, messageText },
         {
           headers: {
