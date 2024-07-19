@@ -105,7 +105,7 @@ function Portfolio() {
       </h2>
       <button
         onClick={() => handleManualScroll("left")}
-        className="absolute left-2 top-1/2 transform -translate-y-1/2 h-10 w-10 bg-dark-blue text-white z-10 flex items-center justify-center rounded-full"
+        className="absolute left-2 top-1/2 transform -translate-y-1/2 h-10 w-10 bg-dark-blue text-white z-10 flex items-center justify-center rounded-full hover:bg-white-opacity-20 "
       >
         &#10094;
       </button>
@@ -129,7 +129,7 @@ function Portfolio() {
       </div>
       <button
         onClick={() => handleManualScroll("right")}
-        className="absolute right-2 top-1/2 transform -translate-y-1/2 h-10 w-10 bg-dark-blue text-white z-10 flex items-center justify-center rounded-full"
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 h-10 w-10 bg-dark-blue text-white z-10 flex items-center justify-center rounded-full hover:bg-white-opacity-20 "
       >
         &#10095;
       </button>

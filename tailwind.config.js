@@ -22,6 +22,7 @@ module.exports = {
         "vert": "#82ca9d",
         'blue-500': '#007cf0',
         'blue-600': '#00dfd8',
+        'white-opacity-20': 'rgba(255, 255, 255, 0.2)',
       },
       fontFamily: {
         'custom': ['Roboto', 'sans-serif'], // Utilisation de Google Fonts

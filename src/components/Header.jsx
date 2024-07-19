@@ -17,7 +17,12 @@ function Header() {
 
     return (
         <header className='flex justify-between items-center p-4 md:p-6 bg-dark-purple text-white fixed top-0 w-full z-50'>
-            <h1 className="text-2xl font-bold text-white font-custom cursor-default">Bekono Sophie</h1>
+            <h1 
+                className="text-2xl font-bold text-white font-custom cursor-pointer"
+                onClick={() => handleLinkClick('about')}
+            >
+                Bekono Sophie
+            </h1>
             
             <nav className='hidden md:flex font-custom'>
                 <ul className='flex gap-8'>
@@ -50,7 +55,12 @@ function Header() {
                 style={{ width: "80%" }}
             >
                 <div className="flex flex-col items-start p-4 space-y-4 text-white font-custom">
-                    <h1 className="text-2xl font-bold text-white mb-6 cursor-default">Bekono Sophie</h1>
+                    <h1 
+                        className="text-2xl font-bold text-white mb-6 cursor-pointer"
+                        onClick={() => handleLinkClick('about')}
+                    >
+                        Bekono Sophie
+                    </h1>
                     <a href="#about" className='w-full py-2 hover:bg-gray-800' onClick={() => handleLinkClick('about')}>About me</a>
                     <a href="#skills" className='w-full py-2 hover:bg-gray-800' onClick={() => handleLinkClick('skills')}>Skills</a>
                     <a href="#projets" className='w-full py-2 hover:bg-gray-800' onClick={() => handleLinkClick('projets')}>Projets</a>
