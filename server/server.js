@@ -51,7 +51,7 @@ app.post('/send-email', (req, res) => {
             },
           ],
           Subject: 'Confirmation: Your message was received',
-          TextPart: `Hello ${name},\n\nThank you for reaching out! We have received your message and will get back to you soon.\n\nBest regards,\nYour Name/Organization`,
+          TextPart: `Hello ${name},\n\nThank you for reaching out! We have received your message and will get back to you soon.\n\nBest regards,\nBekono Sophie.`,
         }
       ],
     });

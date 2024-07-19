@@ -12,7 +12,7 @@ function Contact() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3001/send-email",
+        `${process.env.REACT_APP_BACKEND_URL}/send-email`,
         { name, email, messageText },
         {
           headers: {
@@ -21,16 +21,16 @@ function Contact() {
         }
       );
       if (response.status === 200) {
-        setMessage("Merci pour votre message, nous vous répondrons bientôt !");
+        setMessage("Thank you for your message, we will get back to you soon!");
         setName("");
         setEmail("");
         setMessageText("");
       } else {
-        setMessage("Échec de l'envoi du message. Veuillez réessayer plus tard.");
+        setMessage("Failed to send the message. Please try again later.");
       }
     } catch (error) {
       console.error("There was an error sending the email:", error);
-      setMessage("Échec de l'envoi du message. Veuillez réessayer plus tard.");
+      setMessage("Failed to send the message. Please try again later.");
     }
 
     setTimeout(() => {
