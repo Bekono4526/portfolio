@@ -23,7 +23,7 @@ function About() {
 
   return (
     <section id="about" className="p-6 md:p-20 pt-20 md:pt-20 bg-dark-blue text-white">
-      <h2 className="text-xl md:text-2xl font-bold text-white font-custom mb-4 md:mb-6 mt-4 text-center md:text-left cursor-default hidden md:block">
+      <h2 className="text-xl md:text-2xl font-bold text-white font-custom mb-4 md:mb-10 mt-4 text-center md:text-left cursor-default hidden md:block">
         About me
       </h2>
       <div className="flex flex-col md:flex-row items-center md:items-start w-full max-w-5xl mx-auto space-y-6 md:space-y-0 md:space-x-6">

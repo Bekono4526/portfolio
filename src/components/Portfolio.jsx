@@ -12,7 +12,7 @@ function Portfolio() {
       id: 1,
       title: "Test",
       description: "Ce projet est un portfolio personnel, conçu pour présenter mes compétences, mes projets et mon parcours professionnel. Il a été développé en utilisant les technologies modernes telles que React pour la création de l'interface utilisateur et Tailwind CSS pour le style. L'objectif principal de ce projet est de fournir une plateforme professionnelle où les employeurs potentiels et les collaborateurs peuvent découvrir mon travail, en savoir plus sur moi et accéder facilement à mes projets déployés ainsi qu'à leur code source.",
-      image: "text1.png",
+      image: "cute.webp",
       siteUrl: "https://example.com",
       codeUrl: "https://github.com/Bekono4526/portfolio",
     },
@@ -20,7 +20,7 @@ function Portfolio() {
       id: 2,
       title: "Projet 2",
       description: "Description détaillée du projet 2",
-      image: "",
+      image: "cute.webp",
       siteUrl: "https://example.com",
       codeUrl: "https://github.com/username/example-project2",
     },
@@ -60,18 +60,18 @@ function Portfolio() {
             if (container.scrollLeft >= container.scrollWidth - container.offsetWidth) {
               setScrollDirection("left");
             } else {
-              container.scrollLeft += 1;
+              container.scrollLeft += 1.5; // Augmenter cet intervalle peut aider
             }
           } else {
             if (container.scrollLeft <= 0) {
               setScrollDirection("right");
             } else {
-              container.scrollLeft -= 1;
+              container.scrollLeft -= 1.5; // Augmenter cet intervalle peut aider
             }
           }
         }
       }
-    }, 20);
+    }, 50); // Augmenter l'intervalle de temps
 
     return () => clearInterval(intervalId);
   }, [scrollDirection, manualScroll]);
@@ -100,8 +100,8 @@ function Portfolio() {
 
   return (
     <section id="projets" className="relative p-6 md:p-1 pt-20 md:pt-20 bg-dark-blue text-white">
-      <h2 className="text-xl md:text-2xl font-bold text-white font-custom mb-4 md:mb-6 mt-4 text-center md:text-left cursor-default hidden md:block">
-        Projects
+      <h2 className="mx-auto ml-20 text-xl md:text-2xl font-bold text-white font-custom mb-4 md:mb-6 mt-4 text-center md:text-left cursor-default hidden md:block">
+        Projets
       </h2>
       <button
         onClick={() => handleManualScroll("left")}
@@ -112,9 +112,10 @@ function Portfolio() {
       <div
         ref={scrollRef}
         className="flex overflow-x-auto whitespace-nowrap scroll-smooth gap-4 px-10 scroll-container"
+        style={{ willChange: "scroll-position" }} // Ajout de will-change
       >
         {cards.map((card) => (
-          <div className="min-w-80 flex-shrink-0" key={card.id}>
+          <div className="min-w-full sm:min-w-80 flex-shrink-0" key={card.id}>
             <Card
               title={card.title}
               description={card.description}

@@ -6,9 +6,7 @@ function Card({ title, description, image, onReadMore }) {
 
     return (
         <div className="relative flex flex-col rounded-xl bg-white shadow-md mb-10 w-full sm:w-80 md:w-96">
-            <div
-                className="h-40 overflow-hidden rounded-t-xl flex justify-center items-center bg-gray-200"
-            >
+            <div className="h-40 sm:h-48 md:h-56 overflow-hidden rounded-t-xl flex justify-center items-center bg-gray-200">
                 {hasValidImage ? (
                     <img
                         src={image}
@@ -17,15 +15,15 @@ function Card({ title, description, image, onReadMore }) {
                     />
                 ) : (
                     <div className="w-full h-full bg-gradient-to-r from-vert to-violet flex items-center justify-center">
-                        <span className="text-gray-500">No Image</span>
+                        <span className="text-gray-500 cursor-default">No Image</span>
                     </div>
                 )}
             </div>
             <div className="p-4 sm:p-6 flex-grow flex flex-col">
-                <h5 className="mb-2 text-lg sm:text-xl font-semibold leading-snug text-dark-purple truncate">
+                <h5 className="mb-2 text-lg sm:text-xl font-semibold leading-snug text-dark-purple truncate cursor-default">
                     {title || 'Tailwind Card'}
                 </h5>
-                <p className="text-sm sm:text-base leading-relaxed text-gray-700 overflow-hidden text-ellipsis flex-grow">
+                <p className="text-sm sm:text-base leading-relaxed text-gray-700 overflow-hidden text-ellipsis flex-grow cursor-default">
                     {shortDescription}
                 </p>
             </div>
