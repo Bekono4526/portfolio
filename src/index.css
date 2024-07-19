@@ -2,13 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom scrollbar styles */
 .scroll-container::-webkit-scrollbar {
   height: 8px; /* Adjust the height of the scrollbar */
 }
 
 .scroll-container::-webkit-scrollbar-thumb {
-  background-color: #00002b; /* Customize the color and transparency */
+  background-color: #82ca9d; /* Customize the color and transparency */
   border-radius: 4px; /* Add rounded corners */
 }
 
@@ -18,18 +17,8 @@
 
 .scroll-container {
   scrollbar-width: thin; /* For Firefox */
-  scrollbar-color: #00002b transparent; /* For Firefox */
-  -webkit-overflow-scrolling: touch;
+  scrollbar-color: #82ca9d transparent; /* For Firefox */
+  -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
   overflow-x: auto;
   overflow-y: hidden; /* Ensure no vertical scroll */
-}
-
-/* Add button hover styles for better user experience */
-button {
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: rgba(255, 255, 255, 0.2);
 }
