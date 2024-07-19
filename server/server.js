@@ -7,7 +7,7 @@ import { Resend } from 'resend'; // Utilisation de l'importation nommée correct
 dotenv.config();
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -22,6 +22,7 @@ app.post('/send-email', async (req, res) => {
   const { name, email, messageText } = req.body;
 
   try {
+    console.log(`Sending email to: ${email}`); // Log pour le débogage
     await resendClient.emails.send({
       from: 'sophie <bekonorosy0@gmail.com>',
       to: 'bekonorosy0@gmail.com',
@@ -38,6 +39,7 @@ app.post('/send-email', async (req, res) => {
 
     res.status(200).json({ success: true });
   } catch (error) {
+    console.error('Error sending email:', error); // Log pour le débogage
     res.status(500).json({ success: false, error: error.message });
   }
 });
