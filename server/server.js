@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import mailjet from 'node-mailjet';
+import { Resend } from 'resend'; // Utilisation de l'importation nommée correcte
 
 dotenv.config();
 
@@ -12,57 +12,34 @@ const PORT = 3001;
 app.use(bodyParser.json());
 app.use(cors());
 
-const mailjetClient = mailjet.apiConnect(process.env.MAILJET_API_KEY, process.env.MAILJET_API_SECRET);
+const resendClient = new Resend(process.env.RESEND_API_KEY);
 
 app.get('/', (req, res) => {
   res.send('Server is running!');
 });
 
-app.post('/send-email', (req, res) => {
+app.post('/send-email', async (req, res) => {
   const { name, email, messageText } = req.body;
 
-  const request = mailjetClient
-    .post('send', { version: 'v3.1' })
-    .request({
-      Messages: [
-        {
-          From: {
-            Email: 'bekonorosy0@gmail.com', // Votre adresse email
-            Name: 'sophie', // Votre nom ou celui de l'organisation
-          },
-          To: [
-            {
-              Email: 'bekonorosy0@gmail.com', // Remplacer par votre adresse email
-              Name: 'sophie', // Remplacer par votre nom ou celui de l'organisation
-            },
-          ],
-          Subject: 'New Contact Form Message',
-          TextPart: `Name: ${name}\nEmail: ${email}\nMessage: ${messageText}`,
-        },
-        {
-          From: {
-            Email: 'bekonorosy0@gmail.com', // Votre adresse email
-            Name: 'sophie', // Votre nom ou celui de l'organisation
-          },
-          To: [
-            {
-              Email: email, // L'adresse email de l'utilisateur
-              Name: name, // Le nom de l'utilisateur
-            },
-          ],
-          Subject: 'Confirmation: Your message was received',
-          TextPart: `Hello ${name},\n\nThank you for reaching out! We have received your message and will get back to you soon.\n\nBest regards,\nBekono Sophie.`,
-        }
-      ],
+  try {
+    await resendClient.emails.send({
+      from: 'sophie <bekonorosy0@gmail.com>',
+      to: 'bekonorosy0@gmail.com',
+      subject: 'New Contact Form Message',
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${messageText}`
     });
 
-  request
-    .then((result) => {
-      res.status(200).json({ success: true });
-    })
-    .catch((err) => {
-      res.status(500).json({ success: false, error: err.message });
+    await resendClient.emails.send({
+      from: 'sophie <bekonorosy0@gmail.com>',
+      to: email,
+      subject: 'Confirmation: Your message was received',
+      text: `Hello ${name},\n\nThank you for reaching out! We have received your message and will get back to you soon.\n\nBest regards,\nBekono Sophie.`
     });
+
+    res.status(200).json({ success: true });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
 });
 
 app.listen(PORT, () => {
