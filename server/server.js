@@ -23,25 +23,37 @@ app.post('/send-email', async (req, res) => {
   console.log('Received request to send email:', { name, email, messageText });
 
   try {
-    const firstEmailResponse = await resendClient.emails.send({
+    const { data: firstEmailData, error: firstEmailError } = await resendClient.emails.send({
       from: 'sophie <bekonorosy0@gmail.com>',
-      to: 'bekonorosy0@gmail.com',
+      to: ['bekonorosy0@gmail.com'],
       subject: 'New Contact Form Message',
-      text: `Name: ${name}\nEmail: ${email}\nMessage: ${messageText}`
+      html: `<strong>Name:</strong> ${name}<br/><strong>Email:</strong> ${email}<br/><strong>Message:</strong> ${messageText}`,
     });
-    console.log('First email sent response:', firstEmailResponse);
 
-    const confirmationEmailResponse = await resendClient.emails.send({
+    if (firstEmailError) {
+      console.error('Error sending first email:', firstEmailError);
+      return res.status(500).json({ success: false, error: firstEmailError.message });
+    }
+
+    console.log('First email sent data:', firstEmailData);
+
+    const { data: confirmationEmailData, error: confirmationEmailError } = await resendClient.emails.send({
       from: 'sophie <bekonorosy0@gmail.com>',
-      to: email,
+      to: [email],
       subject: 'Confirmation: Your message was received',
-      text: `Hello ${name},\n\nThank you for reaching out! We have received your message and will get back to you soon.\n\nBest regards,\nBekono Sophie.`
+      html: `<p>Hello ${name},</p><p>Thank you for reaching out! We have received your message and will get back to you soon.</p><p>Best regards,<br/>Bekono Sophie.</p>`,
     });
-    console.log('Confirmation email sent response:', confirmationEmailResponse);
+
+    if (confirmationEmailError) {
+      console.error('Error sending confirmation email:', confirmationEmailError);
+      return res.status(500).json({ success: false, error: confirmationEmailError.message });
+    }
+
+    console.log('Confirmation email sent data:', confirmationEmailData);
 
     res.status(200).json({ success: true });
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('Error in send-email handler:', error);
     res.status(500).json({ success: false, error: error.message });
   }
 });
