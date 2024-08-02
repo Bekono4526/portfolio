@@ -45,7 +45,7 @@ function About() {
         </div>
       </div>
       <div className="flex flex-col sm:flex-row mt-6 md:mt-10 gap-4 justify-center md:justify-start">
-        <a href="/cv.pdf" download className="bg-vert w-full sm:w-40 p-2 text-center rounded flex items-center justify-center">
+        <a href="/resume.pdf" download className="bg-vert w-full sm:w-40 p-2 text-center rounded flex items-center justify-center">
           <FiDownload className="mr-2" /> CV
         </a>
         <a 

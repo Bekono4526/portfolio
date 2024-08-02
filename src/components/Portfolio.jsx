@@ -12,7 +12,7 @@ function Portfolio() {
       id: 1,
       title: "Dabali-project",
       description: "j'ai recodé le site de Dabali express en utilisant React et Tailwind CSS",
-      image: "cute.webp",
+      image: "logo.png",
       siteUrl: "https://dabali-project.netlify.app",
       codeUrl: "https://github.com/Bekono4526/Dabali-project",
     },
