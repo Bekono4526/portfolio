@@ -10,11 +10,11 @@ function Portfolio() {
   const [cards, setCards] = useState([
     {
       id: 1,
-      title: "Test1",
-      description: "Ce projet est un portfolio personnel, conçu pour présenter mes compétences, mes projets et mon parcours professionnel. Il a été développé en utilisant les technologies modernes telles que React pour la création de l'interface utilisateur et Tailwind CSS pour le style. L'objectif principal de ce projet est de fournir une plateforme professionnelle où les employeurs potentiels et les collaborateurs peuvent découvrir mon travail, en savoir plus sur moi et accéder facilement à mes projets déployés ainsi qu'à leur code source.",
+      title: "Dabali-project",
+      description: "j'ai recodé le site de Dabali express en utilisant React et Tailwind CSS",
       image: "cute.webp",
-      siteUrl: "https://example.com",
-      codeUrl: "https://github.com/Bekono4526/portfolio",
+      siteUrl: "https://dabali-project.netlify.app",
+      codeUrl: "https://github.com/Bekono4526/Dabali-project",
     },
     {
       id: 2,

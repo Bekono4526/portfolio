@@ -33,7 +33,7 @@ function Header() {
                         <a href="#skills" onClick={() => handleLinkClick('skills')}>Skills</a>
                     </li>
                     <li className='p-2 px-4 rounded-lg hover:bg-gray-800 transition-colors duration-300'>
-                        <a href="#projets" onClick={() => handleLinkClick('projets')}>Projets</a>
+                        <a href="#projets" onClick={() => handleLinkClick('projets')}>Projects</a>
                     </li>
                     <li className='p-2 px-4 rounded-lg hover:bg-gray-800 transition-colors duration-300'>
                         <a href="#contact" onClick={() => handleLinkClick('contact')}>Contact</a>
@@ -63,7 +63,7 @@ function Header() {
                     </h1>
                     <a href="#about" className='w-full py-2 hover:bg-gray-800' onClick={() => handleLinkClick('about')}>About me</a>
                     <a href="#skills" className='w-full py-2 hover:bg-gray-800' onClick={() => handleLinkClick('skills')}>Skills</a>
-                    <a href="#projets" className='w-full py-2 hover:bg-gray-800' onClick={() => handleLinkClick('projets')}>Projets</a>
+                    <a href="#projets" className='w-full py-2 hover:bg-gray-800' onClick={() => handleLinkClick('projets')}>Projects</a>
                     <a href="#contact" className='w-full py-2 hover:bg-gray-800' onClick={() => handleLinkClick('contact')}>Contact</a>
                 </div>
             </div>
